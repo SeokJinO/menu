@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.menu.MenuDAO">
+    <select id="getMenuList" resultType="com.example.menu.MenuDTO">
+        select * from tb_menu
+    </select>
+    <insert id="insertMenu">
+        insert into tb_menu(menu) values(#{menu})
+    </insert>
+    <select id="getRandMenu" resultType="string">
+        select menu from tb_menu order by RAND() limit 1;
+    </select>
+    <delete id="reset">
+        delete from tb_menu
+    </delete>
+</mapper>
